@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+        
+        <script type="text/babel">
+        class App extends React.Component{
+           state = {
+                name:'Hyungjun Park',
+                age: 21
+         }
+         //   callClick = (e) =>{
+                //console.log(e.target);
+               // this.setState({
+                //    name: 'Harrison'
+             //   });
+               // console.log(this.state);
+        //    }
+          //  mouseHover(e){
+          //      console.log(e.target, e.pageX);
+           // }
+           // copy(e){
+           //     console.log('he copeied');
+           // }
+           makeChange = (e) =>{
+               this.setState({
+                   name:e.target.value
+               });
+            }
+               updateSubmit = (e) =>{
+                   e.preventDefault();
+                   console.log('form submitted', this.state.name)
+
+               }
+           
+                       render(){
+
+            
+            return (
+                <div className="app-content">
+                    <h1>
+                   My name is {this.state.name}  and I am {this.state.age}   
+
+                    </h1>
+                    <form onSubmit={this.updateSubmit}>
+                        <input type="text" onChange={this.makeChange}/>
+                        <button> Submit </button>
+                        
+                        </form>
+                    </div>
+            )
+            }
+            }
+            
+            
+        ReactDOM.render(<App />, document.getElementById('app'))
+        
+        </script>
+
+
+
+</body>
+</html>
